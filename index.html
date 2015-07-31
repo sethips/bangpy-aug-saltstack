@@ -44,14 +44,14 @@
       <ul style="left:300px;left-margin:200px;">
         <li>
           <pre style="display:none" id="code">
--- make state files under /srv/salt, say nginx.sls
-nginx:
-  pkg:
-    - installed
-  cmd.run
-    - service nginx start
-  service.running:
-    - name: nginx
+            -- make state files under /srv/salt, say nginx.sls
+            nginx:
+              pkg:
+                - installed
+           cmd.run
+                - service nginx start
+           service.running:
+                - name: nginx
           </pre>
         </li>
       </ul>
