@@ -1,14 +1,13 @@
 body {
-    font-family: sans-serif;
-    color: black;
-    background: #DDDDDD;
-    font-size: 20px;
+  font-family: "Neue Helvetica W01",sans-serif;
+  color: black;
+  background: #DDDDDD;
 }
-ul {
-   width: 30em;
-    margin: 5em auto;
- 
-    background: white;
-    border: 1px solid gray;
-    padding: 0.5em 2em;
-}s
+ul, div {
+  width: 30em;
+  margin: 5em 5em;
+  list-style-type: none;  
+  background: white;
+  border: 1px solid gray;
+  padding: 0.5em 2em;
+}
