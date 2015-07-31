@@ -1,0 +1,66 @@
+<body>
+  <div id="pagepiling">
+    <div class="section"><ul style="left:300px;left-margin:200px;"><li>Two linux machines, either Ubuntu or linux distro</li>
+      <li>I am using ubuntu 14.04 host and centos 7 guest(runs on virtual manager)</li>
+      <li> Ubuntu is my salt master and centos is my salt minion</li>
+      <li>Now, we will control salt minion (centos m/c) using salt master (ubuntu m/c)</li>
+    </ul></div>
+    <div class="section">
+      <ul style="left:300px;left-margin:200px;">
+        <li>- On master:</li>
+        <li>------- yum install salt-master</li>
+        <li>------- service salt-master status</li>
+        <li>- On minion:</li>
+        <li>------ yum install salt-minion</li>
+        <li>------ service salt-minion status</li>
+      </ul>
+    </div>
+    <div class="section">
+
+      <ul style="left:300px;left-margin:200px;">
+
+        <li>* Add the minion to master</li>
+        <li>-- On minion, add master's ip address in /etc/salt/minion</li>
+        <li>-- On master, authenticate the minion</li>
+        <li>----- salt-key -L</li>
+        <li>----- salt-key -A</li>
+        
+      </ul>
+    </div>
+<div class="section" id="prevToPreSection">
+
+      <ul style="left:300px;left-margin:200px;">
+
+       <li>* salt  - Hello world</li>
+<li>-- salt '*' test.ping</li>
+<li>-- salt 'machine-name' test.ping</li>
+<li>-- add user</li>
+<li>---- salt '*' user.add sk</li>
+        
+      </ul>
+    </div>
+<div class="section">
+
+      <ul style="left:300px;left-margin:200px;">
+<li>
+<pre style="display:none" id="code">
+-- make state files under /srv/salt, say nginx.sls
+nginx:
+  pkg:
+    - installed
+  cmd.run
+    - service nginx start
+  service.running:
+    - name: nginx
+</pre>
+</li>
+</ul>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="jquery.pagepiling.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery.pagepiling.css" />
+    <link rel="stylesheet" type="text/css" href="app.css">
+</body>
+
