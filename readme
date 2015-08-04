@@ -1,3 +1,11 @@
+This tutorial is meant for saltstack demo in August Bangpypers meet.
+To understand various saltstack concepts like, minion, master, grains, pillars, state files, salt modules, 
+there are salt state files added in srv folder. On running salt '*' state.highstate, this will deploy a `hello world`
+nodejs web application on a CentOs/or any linux vm. 
+'present' folder contains the ppt stuff......
+
+
+Miscellaneous stuff ---- 
 ******************* to generate rpm *************************
 pushd /opt
 #fpm is a ruby gem to generate rpms
@@ -5,7 +13,7 @@ sudo fpm -s dir -t rpm -n bangpy-demo /opt/bangpy-demo
 popd
 
 ******************* to run bangpydemo systemd service **************************
-bangpy-demo.service needs to be copied into /etc/systemd/system/bangpy-demo.service
+/srv/salt/files/bangpy-demo.service needs to be copied into /etc/systemd/system/bangpy-demo.service
 and then call,
 sudo systemctl start bangpy-demo
 sudo systemctl status bangpy-demo
