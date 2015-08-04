@@ -75,37 +75,36 @@ base:
   'droles:iamdev':
     - match: grain
     - roles.iamdev
-  'droles:iamdev':
-    - match: grain
-    - roles.helloworld
-
   </pre>
+  <li>Do 'service salt-minion restart' after configuring the grains</li>
 </div>
 <div id="8" class="slide" style="position:absolute;display:none;">
-  <h3 style="align:center" align="center">State files</h3>
+  <h3 style="align:center" align="center">State files - init.sls</h3>
 <pre>
 yum-packs:
   pkg.latest:
     - pkgs:
       - nodejs
-
 install_demo_app:
   pkg.installed:
     - sources:
       - bangpy-demo: salt://files/bangpy-demo-1.0-1.x86_64.rpm
-
 /etc/systemd/system/bangpy-demo.service:
   file.managed:
     - source: salt://files/bangpy-demo.service
     - user: root
     - group: root
     - mode: 600
-
 bangpy-demo:
   service:
     - running
     - enable: True
 </pre>
+</div>
+<div id="9" class="slide" style="position:absolute;display:none;">
+<li> run salt '*' state.highstate to bring minions to this state</li>
+<li> monitor the minion log messages in /var/log/salt/minion</li>
+<li> go to vmip:3010 on the host machine to see the deployed application</li>
 </div>
 <script src="string-format.js"></script>
 <script src="jquery.js"></script>
