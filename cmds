@@ -1,0 +1,11 @@
+******************* to generate rpm *************************
+pushd /opt
+#fpm is a ruby gem to generate rpms
+sudo fpm -s dir -t rpm -n bangpy-demo /opt/bangpy-demo
+popd
+
+******************* to run bangpydemo systemd service **************************
+bangpy-demo.service needs to be copied into /etc/systemd/system/bangpy-demo.service
+and then call,
+sudo systemctl start bangpy-demo
+sudo systemctl status bangpy-demo
