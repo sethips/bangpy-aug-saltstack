@@ -4,6 +4,7 @@
   <li> Ubuntu is my salt master and centos is my salt minion</li><br>
   <li> Now, we will control salt minion (centos m/c) using salt master (ubuntu m/c)</li>
 </ul>
+
 <ul id="2" class="slide" style="position:absolute;display:none;">
   <li>- On master:</li>
   <pre>     yum install salt-master
@@ -12,7 +13,7 @@
   <pre>     yum install salt-minion
      service salt-minion status</pre>
 </ul>
-</div>
+
 <div id="3" class="slide" style="position:absolute;display:none;">
   <li>On minion, configure master's ip address in <pre>/etc/salt/minion</pre></li>
   <pre>     master: host_ip</pre>
@@ -20,25 +21,68 @@
   <pre>    service salt-minion restart</pre>
   <pre>    salt-key -L </pre>
   <pre>    salt-key -A </pre>
+  <pre> delete -----   salt-key -d minion-name<pre>
+  <pre>*********************Check Master- Minion connection***************
+  netstat -ntp | grep 4506
+  tcp        0      0 192.168.122.1:4506      192.168.122.6:50939
+                        ESTABLISHED 16376/python                   </pre>
+  
 </div>
 
 
 <div id="4" class="slide" style="position:absolute;display:none;">
-  <h3 style="align:center" align="center">top.sls</h3>
+  <h3 style="text-align:center"> Ping Test</h3>
+  <li>On master, run <pre>sudo salt '*' test.ping</pre></li>
+  <li> * --- is the glob pattern, to match the minions/it can be minion's host name like sk-box </li>
+  <li> test -- is the module name, ping is the action <li>
+  <li> salt '*' cmd.run 'uname -a'</li>
+  <li> salt '*' service.status sshd</li>
+  <pre></pre>
+  
+</div>
+
+
+<div id="5" class="slide" style="position:absolute;display:none;">
+  <h3 style="text-align:center"> add a user</h3>
+  <li><pre>salt '*' user.add emerald shell='/bin/bash' fullname='Jade Emerald' createhome=True</pre></li>
+  <li><pre>salt '*' cmd.run 'cut -d: -f1 /etc/passwd'</pre> </li>
+
+  <li> salt '*' cmd.run 'uname -a'</li>
+  <li> salt '*' service.status sshd</li>  
+</div>
+
+<div id="6" class="slide" style="position:absolute;display:none;">
+  <h3 style="text-align:center"> Move vi configuration file, .vimrc</h3>
+  <li>Create a file, /srv/salt/vim/vimrc_tmpl on salt master</li>
+  <li>*************************************************</li>
+  <li>set number </li> 
+  <li>set nocompatible</li>
+  <li>*************************************************</li>
+  <li><pre>salt-cp '*' vimrc_tmpl /root/.vimrc</pre></li>  
+</div>
+
+<div id="7" class="slide" style="position:absolute;display:none;">
+  <h3 style="align:center" align="center">Grains and roles</h3>
+  <li> Grains are static information available on the minions</li>
+  <li> It can be configured in /etc/salt/grains</li>
+  <li><pre>
+  droles:
+    - iamdev
+    - helloworld
+  </li>
   <pre>
 base:
-  'kroles:iamdev':
+  'droles:iamdev':
     - match: grain
     - roles.iamdev
+  'droles:iamdev':
+    - match: grain
     - roles.helloworld
 
-  'kroles:iamtest':
-    - match: grain
-    - roles.common
   </pre>
 </div>
-<div id="5" class="slide" style="position:absolute;display:none;">
-  <h3 style="align:center" align="center">top.sls</h3>
+<div id="8" class="slide" style="position:absolute;display:none;">
+  <h3 style="align:center" align="center">State files</h3>
 <pre>
 yum-packs:
   pkg.latest:

@@ -1,0 +1,12 @@
+[Unit]
+Description=bangpy demo Service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/node /opt/bangpy-demo/app.js
+Restart=on-abort
+
+
+[Install]
+WantedBy=multi-user.target
