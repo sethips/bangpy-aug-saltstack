@@ -17,3 +17,12 @@ popd
 and then call,
 sudo systemctl start bangpy-demo
 sudo systemctl status bangpy-demo
+
+Prerequisites for the workshop attendees:
+Get virt-manager installed on the linux machine as,
+  `sudo apt-get install virt-manager`
+Bring up a Centos 7 guest machine with empty root password
+  Download centos 7 qcow2 image from http://cloud.centos.org/centos/7/images/
+  Erase root password using the command, `virt-edit crap-vm /etc/passwd -e 's/^root:.*?:/root::/'`
+If the above command does not work, use guestfish to remove password for root user,
+    `https://access.redhat.com/discussions/664843`
