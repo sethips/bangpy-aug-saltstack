@@ -5,7 +5,10 @@ There are salt state files added in srv folder.
 On running salt '*' state.highstate in salt master, a `hello world` nodejs web application
 will be installed as a systemd service and made up and running. You can view the running 
 application at http://guestIp:3010.
-'present' folder contains the ppt stuff, which i recommend others to go through before attending workshop......
+'present' folder contains the ppt stuff, which i recommend others to go through before attending workshop
+ index.html contains 9 slides, and use the url ------ 
+ /path/to/index.html#1
+ to see the contents. Press down/up key to navigate between the slides......
 *********************************************************************************************************
 Prerequisites for the workshop attendees:
 *********************************************************************************************************
