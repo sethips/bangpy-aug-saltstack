@@ -36,13 +36,13 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
   and reboot the Vm
   Note down eth0's Ip address.
 4) ssh to Vm
-  Try ssh root@vmIp. It may fail, because ssh protocol by default doesnot allow ssh login with empty passwords.
+  Try ssh root@guestIp. It may fail, because ssh protocol by default doesnot allow ssh login with empty passwords.
   Add these three lines to /etc/ssh/sshd_config,
     StrictModes yes 
     PermitEmptyPasswords yes
     PermitRootLogin yes
   Restart ssh daemon as, sudo service sshd restart
-  Confirm, you are able to do, ssh root@vmIp from the host machine
+  Confirm, you are able to do, ssh root@guestIp from the host machine
 
 Now, all the necessary resources are set up in place.
 Go through the presentation in github repo, bangpy-aug-saltstack/present/index.html and do those steps, as much as you can before coming for the workshop
