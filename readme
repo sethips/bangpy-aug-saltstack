@@ -22,7 +22,8 @@ Download image, say centos7_bangpydemo.qcow2 from  http://cloud.centos.org/cento
 Create a new guest machine following the instructions at,
   https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Virtualization_Host_Configuration_and_Guest_Installation_Guide/chap-Virtualization_Host_Configuration_and_Guest_Installation_Guide-Guest_Installation_Virt_Manager-Creating_guests_with_virt_manager.html
 Try to boot the virtual instance. If it throws error as, "No bootable device", refer this post and fix it,
-  http://serverfault.com/questions/675437/boot-failed-virt-manager-fails-to-load-qcow2-image && http://ubuntuforums.org/showthread.php?t=1638708
+  http://serverfault.com/questions/675437/boot-failed-virt-manager-fails-to-load-qcow2-image && 
+  http://ubuntuforums.org/showthread.php?t=1638708
 3) Login to Vm
   Now, try to login as root user into the VM. If it asks for password authentication, use guestfish to remove password for root user,
     https://access.redhat.com/discussions/664843%60
