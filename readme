@@ -29,6 +29,8 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
   http://ubuntuforums.org/showthread.php?t=1638708
 3) Login to Vm
   Now, try to login as root user into the VM. If it asks for password authentication, use guestfish to remove password for root user,
+    sudo apt-get install libguestfs-tools  # Debian/Ubuntu
+    guestfish --ro -i -a disk.img
     https://access.redhat.com/discussions/664843%60
   Now you must be able to login into vm via virt-manager
   Run ifconfig inside Vm to get eth0 IPAddress. If eth0 is not up and running,
