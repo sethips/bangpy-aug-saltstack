@@ -1,0 +1,15 @@
+-******************* to generate rpm *************************
+pushd /opt
+#fpm is a ruby gem to generate rpms
+sudo fpm -s dir -t rpm -n bangpy-demo /opt/bangpy-demo
+
+******************* to run bangpydemo systemd service **************************		
+-/srv/salt/files/bangpy-demo.service needs to be copied into /etc/systemd/system/bangpy-demo.service		
+-and then call,		
+-sudo systemctl start bangpy-demo		
+-sudo systemctl status bangpy-demo
+
+***************** Salt modules location ***********************************
+All salt command arguments take the form, salt 'MinionPattern' ModuleName.FuncName
+For example, salt '*' test.ping links to 
+/usr/lib/python2.7/dist-packages/salt/modules/test.py and ping function
