@@ -47,9 +47,9 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
   Restart ssh daemon as, sudo service sshd restart
   Confirm, you are able to do, ssh root@guestIp from the host machine
 5) Change hostname
-   Change guestmachine hostname as 'demo-at-redhat' in /etc/hostname
+   Change guestmachine hostname as 'salt-at-redhat' in /etc/hostname
    Get the guestmachine's ip by running this command on host machine --- `arp -an` 
-   In /etc/hosts on the host machine, add an entry `guestIp demo-at-redhat`
-   Try `ping demo-at-redhat` and `ssh demo-at-redhat` from the host m/c and both must work.
+   In /etc/hosts on the host machine, add an entry `guestIp salt-at-redhat`
+   Try `ping salt-at-redhat` and `ssh salt-at-redhat` from the host m/c and both must work.
 Now, all the necessary resources are set up in place.
 Go through the presentation in github repo, bangpy-aug-saltstack/present/index.html and do those steps, as much as you can before coming for the workshop
