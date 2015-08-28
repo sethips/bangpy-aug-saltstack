@@ -31,7 +31,7 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
   Now, try to login as root user into the VM. If it asks for password authentication, use guestfish to remove password for root user,
     sudo apt-get install libguestfs-tools  # Debian/Ubuntu
     guestfish --ro -i -a disk.img
-    https://access.redhat.com/discussions/664843%60
+    https://access.redhat.com/discussions/664843
   Now you must be able to login into vm via virt-manager
   Run ifconfig inside Vm to get eth0 IPAddress. If eth0 is not up and running,
     http://unix.stackexchange.com/questions/36705/why-the-default-eth0-interface-is-down-by-default-on-centos
@@ -45,6 +45,9 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
     PermitRootLogin yes
   Restart ssh daemon as, sudo service sshd restart
   Confirm, you are able to do, ssh root@guestIp from the host machine
-
+5) Change hostname
+   Change guestmachine hostname as 'demo-at-redhat' in /etc/hostname
+   Get the guestmachine's ip by running this command on host machine --- `arp -an` 
+   In /etc/hosts on the host machine, add an entry `guestIp demo-at-redhat`
 Now, all the necessary resources are set up in place.
 Go through the presentation in github repo, bangpy-aug-saltstack/present/index.html and do those steps, as much as you can before coming for the workshop
