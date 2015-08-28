@@ -52,11 +52,11 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
    In /etc/hosts on the host machine, add an entry `guestIp salt-at-redhat`
    Try `ping salt-at-redhat` and `ssh salt-at-redhat` from the host m/c and both must work.
 6) Install salt
-   - On master:
-     `yum install salt-master`
+   - On master(host machine):
+     `yum install salt-master` #use apt-get if you have a ubuntu machine
      `service salt-master status`
      must say, service is up and running
-   - On minion:
+   - On minion(Centos vm):
      `yum install salt-minion`
      `service salt-minion status`
        
