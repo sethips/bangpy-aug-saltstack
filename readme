@@ -52,6 +52,8 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
    In /etc/hosts on the host machine, add an entry `guestIp salt-at-redhat`
    Try `ping salt-at-redhat` and `ssh salt-at-redhat` from the host m/c and both must work.
 6) Install salt
+   - For CentOs machines, you need to add EPEL to yum.repos.d before installing salt packages
+     -- rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    - On master(host machine):
      `yum install salt-master` #use apt-get if you have a ubuntu machine
      `service salt-master status`
@@ -59,6 +61,7 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
    - On minion(Centos vm):
      `yum install salt-minion`
      `service salt-minion status`
+   In case you face errors during  `yum install salt-*`, try the debugging steps given here - http://hobodave.com/2011/02/10/fixing-epel-primary-sqlite-database-not-found/
        
 Now, all the necessary resources are set up in place.
 Go through the presentation in github repo, bangpy-aug-saltstack/present/index.html and do those steps, as much as you can before coming for the workshop
