@@ -17,6 +17,7 @@ Four steps:
 2) Bring up a Centos Vm Instance
 3) Login to Vm
 4) ssh to Vm
+5) Change hostname
 
 1) Install hypervisor, virt-manager
   sudo apt-get install virt-manager
