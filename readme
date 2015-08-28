@@ -51,5 +51,14 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
    Get the guestmachine's ip by running this command on host machine --- `arp -an` 
    In /etc/hosts on the host machine, add an entry `guestIp salt-at-redhat`
    Try `ping salt-at-redhat` and `ssh salt-at-redhat` from the host m/c and both must work.
+6) Install salt
+   - On master:
+     `yum install salt-master`
+     `service salt-master status`
+     must say, service is up and running
+   - On minion:
+     `yum install salt-minion`
+     `service salt-minion status`
+       
 Now, all the necessary resources are set up in place.
 Go through the presentation in github repo, bangpy-aug-saltstack/present/index.html and do those steps, as much as you can before coming for the workshop

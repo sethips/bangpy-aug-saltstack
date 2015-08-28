@@ -14,6 +14,8 @@ Try to boot the virtual instance. If it throws error as, "No bootable device", r
   http://serverfault.com/questions/675437/boot-failed-virt-manager-fails-to-load-qcow2-image && http://ubuntuforums.org/showthread.php?t=1638708
 Login to Vm:
   Now, try to login as root user into the VM. If it asks for password authentication, use guestfish to remove password for root user,
+    sudo apt-get install libguestfs-tools  # Debian/Ubuntu
+    sudo guestfish --ro -i -a centos-img.qcow2
     https://access.redhat.com/discussions/664843%60
   Now you must be able to login into vm via virt-manager
   Run ifconfig inside Vm to get eth0 IPAddress. If eth0 is not up and running,
